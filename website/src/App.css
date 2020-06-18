@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,8 +21,8 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
+  color: white; */
+/* } */
 
 .App-link {
   color: #61dafb;
@@ -35,4 +35,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container-form {
+  width: 50vw;
+  margin-left: 35vw;
+  border: 0;
+  height: 83vh;
+  margin-top: 10vh;
+  color: antiquewhite;
+}
+
+.container-main {
+  background: url(https://cdn.hipwallpaper.com/i/29/80/dXZkmy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.formGroup {
+  border: 0;
 }
