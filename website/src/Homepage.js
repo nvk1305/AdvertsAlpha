@@ -57,21 +57,8 @@ class Homepage extends React.Component {
     }
 
     render() {
-        console.log(this.state.isFlatBedChecked)
-        console.log(this.state.isOwnerOperatorChecked)
-        console.log(this.state.isLeasePurchaseChecked)
         return (
             <div>
-                <div>
-                    <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand href="#home">FindMeALead</Navbar.Brand>
-                        <Nav className="mr-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#features">Request A Quote</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
-                        </Nav>
-                    </Navbar>
-                </div>
                 <div className="container-main">
                     <div className="container-form">
                         <div className="applyNow">
@@ -185,7 +172,7 @@ class Homepage extends React.Component {
                                 </div>
                             </Form.Row>
                             <Form.Row>
-                                <Form.Group as={Col} md="8" controlId="validationCustom01">
+                                <Form.Group as={Col} md="5" controlId="validationCustom01">
                                     {/* <Form.Label>First name</Form.Label> */}
                                     <Form.Control
                                         required
@@ -197,8 +184,38 @@ class Homepage extends React.Component {
                                     />
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                 </Form.Group>
+                                <fieldset style={{ fontSize: "small" }}>
+                                    <Form.Group as={Col}>
+                                        <Form.Label as="legend" required md={4}>
+                                            {/* <Form.Label required md={4}> */}
+                                            Do you have a CDL-A?
+                                        </Form.Label>
+                                        <Form.Check
+                                            onChange={this.handleChange}
+                                            // checked={this.handleChange}
+                                            required
+                                            id="CDL_A"
+                                            inline
+                                            value="Yes"
+                                            type="radio"
+                                            label="Yes"
+                                            name="formHorizontalRadios"
+                                        // id="formHorizontalRadios1"
+                                        />
+                                        <Form.Check
+                                            onChange={this.handleChange}
+                                            required
+                                            id="CDL_A"
+                                            inline
+                                            value="No"
+                                            type="radio"
+                                            label="No"
+                                            name="formHorizontalRadios"
+                                        />
+                                    </Form.Group>
+                                </fieldset>
                             </Form.Row>
-                            <Form.Row style={{ justifyContent: "center" }}>
+                            {/* <Form.Row style={{ justifyContent: "center" }}>
                                 <fieldset>
                                     <Form.Group as={Col}>
                                         <Form.Label as="legend" required md={4}>
@@ -228,9 +245,10 @@ class Homepage extends React.Component {
                                         />
                                     </Form.Group>
                                 </fieldset>
-                            </Form.Row>
-                            <Form.Row style={{ justifyContent: "center" }}>
-                                <Form.Group as={Col} md="8">
+                            </Form.Row> */}
+                            {/* <Form.Row style={{ justifyContent: "left" }}> */}
+                            <Form.Row style={{ textAlign: "left" }}>
+                                <Form.Group as={Col} md="8" >
                                     <Form.Check
                                         // required
                                         onChange={this.handleChange}
@@ -264,6 +282,7 @@ class Homepage extends React.Component {
                             </Form.Row>
                             <div style={{ justifyContent: "center" }}>
                                 <Button
+                                    onSubmit={this.handleSubmit}
                                     variant="info"
                                     size="lg"
                                     type="submit">Submit form</Button>
