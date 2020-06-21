@@ -1,5 +1,13 @@
 import React from 'react'
-import { Form, Button, Col, Dropdown, DropdownButton, Nav, Navbar } from 'react-bootstrap'
+import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap'
+import desktopImage from './truck.jpg';
+
+var sectionStyle = {
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: `url(${desktopImage})`
+  };
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -21,6 +29,7 @@ class Homepage extends React.Component {
             isLeasePurchaseChecked: false
         }
     }
+
 
     handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -56,13 +65,18 @@ class Homepage extends React.Component {
         this.setState({ experience: eventKey })
     }
 
+   
+
     render() {
+  
         return (
-            <div>
-                <div className="container-main">
+                <div style={ sectionStyle }>
+                    <div>
+                        <p>some text here</p>
+                    </div>
                     <div className="container-form">
                         <div className="applyNow">
-                            <h4>APPLY NOW!</h4>
+                            <h4>Register Now</h4>
                         </div>
                         <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                             <Form.Row>
@@ -301,8 +315,6 @@ class Homepage extends React.Component {
                         <p>your opportunity strikes here...!</p>
                     </div>
                 </div >
-            </div>
-
         );
     }
 }

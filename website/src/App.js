@@ -4,14 +4,14 @@ import Homepage from './Homepage'
 import Requestaquote from './Requestaquote'
 import { Nav, Navbar } from 'react-bootstrap'
 import Blog from './Blog'
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AA from './advertalphaicon.png'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeKey: "3"
+      activeKey: "1"
     }
   }
 
@@ -27,11 +27,10 @@ class App extends React.Component {
     return (
       <div className="App" >
         <div>
-          <Navbar fixed="top" activeKey={this.state.activeKey} bg="dark" variant="dark">
-            <Navbar.Brand href="#home">FindMeALead</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link eventKey={1} active={this.state.activeKey} onSelect={this.handleClick}>Home</Nav.Link>
-              <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Request A Quote</Nav.Link>
+          <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark">
+            <Navbar.Brand href="./Homepage"><img width="30px" height="30px" src={AA} ></img> AdvertAlpha </Navbar.Brand>
+            <Nav className="ml-auto">
+    <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Request A Quote {" "}|</Nav.Link>
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog</Nav.Link>
             </Nav>
           </Navbar>
