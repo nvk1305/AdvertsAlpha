@@ -13,7 +13,7 @@ class Blog extends React.Component {
 
                 <div className="container-blog-data" style={{ textAlign: "left", textIndent: "5vw", marginLeft: "2vw" }}>
                     <div>
-                        <p>At FindMeALead, we help recruiters get the most relevant jobseekers for their listings and most relevant jobs for the job seekers. To achieve that, to add a
+                        <p>At Advertalpha, we help recruiters get the most relevant jobseekers for their listings and most relevant jobs for the job seekers. To achieve that, to add a
                     pinch of quality to service, we are validating the information before serving it.</p>
 
                         <p>When we say “Validation”, we would need to get in touch with job seekers and employers. We do that on phone calls, texts, emails, and video calls too.

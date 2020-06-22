@@ -5,7 +5,8 @@ import Requestaquote from './Requestaquote'
 import { Nav, Navbar } from 'react-bootstrap'
 import Blog from './Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AA from './advertalphaicon.png'
+import logo from './advertalphaicon.png'
+// import logo from './logo1.png'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,16 +20,21 @@ class App extends React.Component {
     this.setState({ activeKey: selectedKey })
   }
 
+  handleNavbarOnClick = () => {
+    this.setState({ activeKey: "1" })
+  }
+
   render() {
     console.log(this.state.activeKey)
     return (
       <div className="App" >
-        <div>
-          <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark">
-            <Navbar.Brand href="./Homepage"><img width="30px" height="30px" src={AA} ></img> AdvertAlpha </Navbar.Brand>
+        <div className="container-navbar">
+          {/* <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark"> */}
+          <Navbar class="navbar" activeKey={this.state.activeKey} variant="dark">
+            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="50px" height="50px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
-              <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Request A Quote {" "}|</Nav.Link>
-              <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog</Nav.Link>
+              <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>|</Nav.Link>
+              <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Contact Us</Nav.Link>
             </Nav>
           </Navbar>
         </div>
