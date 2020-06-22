@@ -21,16 +21,13 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.activeKey)
-    // if (this.state.activeKey === "3") {
-    //   return <Blog />
-    // } else return null
     return (
       <div className="App" >
         <div>
           <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark">
             <Navbar.Brand href="./Homepage"><img width="30px" height="30px" src={AA} ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
-    <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Request A Quote {" "}|</Nav.Link>
+              <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Request A Quote {" "}|</Nav.Link>
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog</Nav.Link>
             </Nav>
           </Navbar>
