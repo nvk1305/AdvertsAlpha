@@ -6,7 +6,8 @@ class Blog extends React.Component {
     }
     render() {
         return (
-            <div className="container-blog container" >
+            <div className="container-blog" >
+                <div className="container" >
                     <div>
                         <p>At Advertalpha, we help recruiters get the most relevant jobseekers for their listings and most relevant jobs for the job seekers. To achieve that, to add a
                     pinch of quality to service, we are validating the information before serving it.</p>
@@ -33,10 +34,10 @@ class Blog extends React.Component {
                                 Based on the information we receive from drivers at the time of validation, we will route their applications to the respective companies.
                             </li>
                         </ul>
-                    </div>
-
-                        We are happy to see feedback from you. Thank you.
+                    </div >
+                    We are happy to see feedback from you. Thank you.
                 </div>
+            </div>
         )
     }
 }

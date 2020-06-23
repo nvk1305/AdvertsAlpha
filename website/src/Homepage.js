@@ -295,7 +295,7 @@ class Homepage extends React.Component {
                                 onSubmit={this.handleSubmit}
                                 variant="info"
                                 size="lg"
-                                type="submit">Submit form</Button>
+                                type="submit">Submit</Button>
                         </div>
                         <div style={{ fontSize: "small", fontWeight: "lighter" }}>
                             <p>

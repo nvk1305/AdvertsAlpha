@@ -5,7 +5,7 @@ import Requestaquote from './Requestaquote'
 import { Nav, Navbar } from 'react-bootstrap'
 import Blog from './Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './advertalphaicon.png'
+import logo from './advertalphaicon.png';
 // import logo from './logo1.png'
 
 class App extends React.Component {
@@ -31,7 +31,7 @@ class App extends React.Component {
         <div className="container-navbar">
           {/* <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark"> */}
           <Navbar class="navbar" activeKey={this.state.activeKey} variant="dark">
-            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="40px" height="40px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
+            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="40px" height="40px" src={logo} alt="Background" ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>|</Nav.Link>
               <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Contact Us</Nav.Link>
