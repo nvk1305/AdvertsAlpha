@@ -31,7 +31,7 @@ class App extends React.Component {
         <div className="container-navbar">
           {/* <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark"> */}
           <Navbar class="navbar" activeKey={this.state.activeKey} variant="dark">
-            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="50px" height="50px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
+            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="40px" height="40px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>|</Nav.Link>
               <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Contact Us</Nav.Link>

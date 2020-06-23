@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, Navbar, InputGroup, FormControl, Button } from 'react-bootstrap'
+import { InputGroup, FormControl, Button } from 'react-bootstrap'
 
 class RequestAQuote extends React.Component {
     constructor(props) {
@@ -10,9 +10,9 @@ class RequestAQuote extends React.Component {
     render() {
         return (
             <div>
-                <div className="requestQuote">
+                <div className="requestQuote container">
                     <div>
-                        <p>Please fill the form below. We will get in touch in the next 24 hours.</p>
+                        <h4>Please fill the form below. We will get in touch in the next 24 hours.</h4>
                     </div>
                     <div>
                         <InputGroup className="mb-3">
@@ -47,10 +47,10 @@ class RequestAQuote extends React.Component {
                             <FormControl rows="5" as="textarea" aria-label="With textarea" />
                         </InputGroup>
                     </div>
-                    <div>
+                </div>
+                <div className="container">
                         <Button variant="secondary">Send</Button>
                     </div>
-                </div>
             </div>
         );
     }

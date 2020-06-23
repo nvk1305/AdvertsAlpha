@@ -6,12 +6,7 @@ class Blog extends React.Component {
     }
     render() {
         return (
-            <div className="container-blog" style={{ display: "flex", flexDirection: "row", justifyContent: "left" }}>
-                <div className="blog-image">
-                    <img width="750px" src="https://i0.wp.com/findmealead.com/wp-content/uploads/2020/06/rsz_shutterstock_488919055-scaled.jpg?zoom=2&resize=1000%2C800&ssl=1" ></img>
-                </div>
-
-                <div className="container-blog-data" style={{ textAlign: "left", textIndent: "5vw", marginLeft: "2vw" }}>
+            <div className="container-blog container" >
                     <div>
                         <p>At Advertalpha, we help recruiters get the most relevant jobseekers for their listings and most relevant jobs for the job seekers. To achieve that, to add a
                     pinch of quality to service, we are validating the information before serving it.</p>
@@ -42,7 +37,6 @@ class Blog extends React.Component {
 
                         We are happy to see feedback from you. Thank you.
                 </div>
-            </div >
         )
     }
 }

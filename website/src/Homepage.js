@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap'
-import desktopImage from './truck.jpg';
 
 // var sectionStyle = {
 //     backgroundPosition: 'center',
@@ -70,12 +69,12 @@ class Homepage extends React.Component {
     render() {
         return (
             <div className="container-homePage">
-                {/* <div className="container-form"> */}
-                {/* <div className="applyNow">
-                    <h4>Register Now</h4>
-                </div> */}
-                <div className="container-form">
-                    <Form className="form" noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+                {/* {<div className="container-form">} */}
+                <div className="applyNow container">
+                    <h4 >Register Now</h4>
+                </div>
+                <div className="container-form container">
+                    <Form className="form"  noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom01">
                                 {/* <Form.Label>First name</Form.Label> */}

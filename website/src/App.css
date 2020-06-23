@@ -41,12 +41,12 @@
 
 .container-form {
   padding-top: 2vh;
-  width: 40%;
+  /* width: 40%;
   font-weight: bolder;
   text-align: center;
   margin-left: 3vh;
-  padding-left: 1vh;
-  background-color: rgba(115, 117, 117, 0.582);
+  padding-left: 1vh; */
+  background-color: rgba(115, 117, 117, 0.384);
   color: rgb(255, 255, 255);
 }
 
@@ -60,8 +60,9 @@
 
 .applyNow {
   /* position: 'absolute'; */
-  margin-left: -1vh;
-  width: 101%;
+  text-align: center;
+  margin-left: 3vh;
+  width: 40%;
   height: 5vh;
   background-color: rgba(37, 148, 221, 0.596);
   font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -78,9 +79,12 @@
   height: 7vh;
 }
 
-.container-blog {
-  margin-top: 15vh;
-}
+  .container-blog {
+    background-image: url("340557.jpg");
+  background-position: center;
+  color: white;
+  margin-top: 2vh;
+  }
 
 .opportunityText {
   margin-left: 2vw;
@@ -103,8 +107,6 @@
 
 .requestQuote {
   justify-content: center;
-  width: 50vw;
-  margin-left: 25vw;
 }
 
 .container-blog {
