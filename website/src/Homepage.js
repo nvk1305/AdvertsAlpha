@@ -1,13 +1,6 @@
 import React from 'react'
 import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap'
 
-// var sectionStyle = {
-//     backgroundPosition: 'center',
-//     backgroundSize: 'cover',
-//     backgroundRepeat: 'no-repeat',
-//     backgroundImage: `url(${desktopImage})`,
-// };
-
 class Homepage extends React.Component {
     constructor(props) {
         super(props);
@@ -29,15 +22,48 @@ class Homepage extends React.Component {
         }
     }
 
+    addUserToDB = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = JSON.stringify({
+            "firstName": this.state.firstName,
+            "lastName": this.state.lastName,
+            "phoneNumber": Number(this.state.phoneNumber),
+            "email": this.state.email,
+            "city": this.state.city,
+            "state": this.state.state,
+            "zipcode": this.state.zipcode,
+            "CDL_A": this.state.CDL_A,
+            "experience": this.state.experience,
+            "endorsements": this.state.endorsements,
+            "flatBedExperience": this.state.isFlatBedChecked,
+            "ownerOperator": this.state.isOwnerOperatorChecked,
+            "leasePurchase": this.state.isLeasePurchaseChecked
+        })
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://w5mq91au43.execute-api.us-east-1.amazonaws.com/Dev", requestOptions)
+            .then(response => response.json())
+            .then(result => console.log("Response from API: ", result))
+            .catch(error => console.log('error', error));
+    }
 
     handleSubmit = (event) => {
+        event.preventDefault()
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
-
         this.setState({ validated: true });
+        if (this.state.validated) {
+            this.addUserToDB()
+        }
     };
 
     handleChange = (event) => {
@@ -69,67 +95,57 @@ class Homepage extends React.Component {
     render() {
         return (
             <div className="container-homePage">
-                {/* {<div className="container-form">} */}
-                <div className="applyNow container">
-                    <h4 >Register Now</h4>
-                </div>
                 <div className="container-form container">
-                    <Form className="form"  noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+                    <div className="applyNow container">
+                        <h4 >Register Now</h4>
+                    </div>
+                    <Form className="form" noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom01">
-                                {/* <Form.Label>First name</Form.Label> */}
                                 <Form.Control
                                     id="firstName"
                                     onChange={this.handleChange}
                                     required
                                     type="text"
                                     placeholder="First name"
-                                // defaultValue="Mark"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="5" controlId="validationCustom02">
-                                {/* <Form.Label>Last name</Form.Label> */}
                                 <Form.Control
                                     required
                                     id="lastName"
                                     onChange={this.handleChange}
                                     type="text"
                                     placeholder="Last name"
-                                // defaultValue="Otto"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom01">
-                                {/* <Form.Label>First name</Form.Label> */}
                                 <Form.Control
                                     required
                                     id="phoneNumber"
                                     type="text"
                                     placeholder="Phone Number"
                                     onChange={this.handleChange}
-                                // defaultValue="Mark"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="5" controlId="validationCustom02">
-                                {/* <Form.Label>Last name</Form.Label> */}
                                 <Form.Control
                                     required
                                     id="email"
                                     type="email"
                                     onChange={this.handleChange}
                                     placeholder="Email"
-                                // defaultValue="Otto"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom03">
-                                {/* <Form.Label>City</Form.Label> */}
                                 <Form.Control
                                     id="city"
                                     onChange={this.handleChange}
@@ -141,7 +157,6 @@ class Homepage extends React.Component {
                             </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="5" controlId="validationCustom04">
-                                {/* <Form.Label>State</Form.Label> */}
                                 <Form.Control
                                     type="text"
                                     id="state"
@@ -155,7 +170,6 @@ class Homepage extends React.Component {
                         </Form.Row>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom05">
-                                {/* <Form.Label>Zip</Form.Label> */}
                                 <Form.Control
                                     id="zipcode"
                                     type="text"
@@ -183,26 +197,22 @@ class Homepage extends React.Component {
                         </Form.Row>
                         <Form.Row>
                             <Form.Group as={Col} md="5" controlId="validationCustom01">
-                                {/* <Form.Label>First name</Form.Label> */}
                                 <Form.Control
                                     required
                                     id="endorsements"
                                     onChange={this.handleChange}
                                     type="text"
                                     placeholder="Do you have any endorsements?"
-                                // defaultValue="Mark"
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                             <fieldset style={{ fontSize: "small" }}>
                                 <Form.Group as={Col}>
                                     <Form.Label as="legend" required md={4}>
-                                        {/* <Form.Label required md={4}> */}
-                                            Do you have a CDL-A?
+                                        Do you have a CDL-A?
                                         </Form.Label>
                                     <Form.Check
                                         onChange={this.handleChange}
-                                        // checked={this.handleChange}
                                         required
                                         id="CDL_A"
                                         inline
@@ -210,7 +220,6 @@ class Homepage extends React.Component {
                                         type="radio"
                                         label="Yes"
                                         name="formHorizontalRadios"
-                                    // id="formHorizontalRadios1"
                                     />
                                     <Form.Check
                                         onChange={this.handleChange}
@@ -225,42 +234,9 @@ class Homepage extends React.Component {
                                 </Form.Group>
                             </fieldset>
                         </Form.Row>
-                        {/* <Form.Row style={{ justifyContent: "center" }}>
-                                <fieldset>
-                                    <Form.Group as={Col}>
-                                        <Form.Label as="legend" required md={4}>
-                                            Do you have a CDL-A?
-                                </Form.Label>
-                                        <Form.Check
-                                            onChange={this.handleChange}
-                                            // checked={this.handleChange}
-                                            required
-                                            id="CDL_A"
-                                            inline
-                                            value="Yes"
-                                            type="radio"
-                                            label="Yes"
-                                            name="formHorizontalRadios"
-                                        // id="formHorizontalRadios1"
-                                        />
-                                        <Form.Check
-                                            onChange={this.handleChange}
-                                            required
-                                            id="CDL_A"
-                                            inline
-                                            value="No"
-                                            type="radio"
-                                            label="No"
-                                            name="formHorizontalRadios"
-                                        />
-                                    </Form.Group>
-                                </fieldset>
-                            </Form.Row> */}
-                        {/* <Form.Row style={{ justifyContent: "left" }}> */}
                         <Form.Row style={{ textAlign: "left" }}>
                             <Form.Group as={Col} md="8" >
                                 <Form.Check
-                                    // required
                                     onChange={this.handleChange}
                                     checked={this.state.isFlatBedChecked}
                                     value="Yes"
@@ -271,7 +247,6 @@ class Homepage extends React.Component {
                             </Form.Group>
                             <Form.Group as={Col} md="8">
                                 <Form.Check
-                                    // required
                                     onChange={this.handleChange}
                                     id="ownerOperator"
                                     checked={this.state.isOwnerOperatorChecked}
@@ -281,7 +256,6 @@ class Homepage extends React.Component {
                             </Form.Group>
                             <Form.Group as={Col} md="8">
                                 <Form.Check
-                                    // required
                                     onChange={this.handleChange}
                                     id="leasePurchaseInterest"
                                     checked={this.state.isLeasePurchaseChecked}
@@ -306,9 +280,7 @@ class Homepage extends React.Component {
                     </Form >
                 </div>
 
-                {/* </div > */}
                 <div className="opportunityText">
-                    {/* <h1>Your opportunity strikes here.</h1> */}
                     <p>your opportunity strikes here...!</p>
                 </div>
             </div >
