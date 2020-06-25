@@ -1,46 +1,75 @@
 import React from 'react';
 import './App.css';
 import Homepage from './Homepage'
-import Requestaquote from './Requestaquote'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, Modal, Button } from 'react-bootstrap'
 import Blog from './Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './advertalphaicon.png';
-// import logo from './logo1.png'
+import logo from './advertalphaicon.png'
+import ContactUsModal from "./ContactUsModal"
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeKey: "1"
+      activeKey: "1",
+      showModal: false,
+      showToast: true,
+      showSuccessModal: false
     }
   }
 
   handleClick = (selectedKey) => {
-    this.setState({ activeKey: selectedKey })
+    selectedKey === "2" ? this.setState({ showModal: true }) : this.setState({ activeKey: selectedKey })
+  }
+
+  handleClose = () => {
+    this.setState({ showSuccessModal: false })
   }
 
   handleNavbarOnClick = () => {
     this.setState({ activeKey: "1" })
   }
 
+  handleModalClose = () => {
+    console.log("handleModalClose called")
+    this.setState({ showModal: !this.state.showModal })
+  }
+
+  handleSubmitContactInfo = () => {
+    this.setState({ showModal: false, showSuccessModal: true })
+  }
+
   render() {
-    console.log(this.state.activeKey)
+    console.log(this.state)
     return (
-      <div className="App" >
+      <div className="App">
         <div className="container-navbar">
-          {/* <Navbar class="navbar navbar-fixed-top" activeKey={this.state.activeKey} bg="dark" variant="dark"> */}
-          <Navbar class="navbar" activeKey={this.state.activeKey} variant="dark">
-            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="40px" height="40px" src={logo} alt="Background" ></img> AdvertAlpha </Navbar.Brand>
+          <Navbar className="navbar" activeKey={this.state.activeKey} variant="dark">
+            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="50px" height="50px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>|</Nav.Link>
               <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Contact Us</Nav.Link>
             </Nav>
           </Navbar>
         </div>
-        {this.state.activeKey === "1" ? <Homepage /> : null}
-        {this.state.activeKey === "2" ? <Requestaquote /> : null}
-        {this.state.activeKey === "3" ? <Blog /> : null}
+        {this.state.showModal ? <ContactUsModal
+          showModal={this.state.showModal}
+          onModalClose={this.handleModalClose}
+          onModalSubmit={this.handleSubmitContactInfo} /> : null}
+        <div>
+          <Modal show={this.state.showSuccessModal} size="lg" onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Thank you for contacting us. We will get back to you within 24 hours.</Modal.Title>
+            </Modal.Header>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          {this.state.activeKey === "1" ? <Homepage /> : null}
+          {this.state.activeKey === "3" ? <Blog /> : null}
+        </div>
       </div >
     );
   }
