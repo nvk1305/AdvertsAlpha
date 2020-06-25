@@ -45,8 +45,8 @@
   text-align: center;
   margin-left: 3vh;
   padding-left: 1vh; */
-  background-color: rgba(0, 0, 0, 0.884);
-  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 /* .form {
@@ -62,8 +62,7 @@
 .applyNow {
   text-align: center;
   margin-bottom: 2vh;
-  height: 4.5vh;
-  background-color: rgb(41, 37, 241);
+  background-color: rgb(0, 102, 255);
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color: white;
 }
@@ -88,15 +87,12 @@
   }
 
 .opportunityText {
-  color: aliceblue;
   font-weight: bolder;
   font-size: 5vh;
   position: 'absolute'; 
-  bottom: 0;
   text-align:center;
   /* font-family: 'Courier New', Courier, monospace; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:black;
 }
 
 .form-check [type=checkbox] {
@@ -150,4 +146,8 @@
   to {
       opacity: 1;
   }
+}
+.highlight {
+  text-align: center;
+  font-size: 3vh;
 }

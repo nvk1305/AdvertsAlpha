@@ -6,6 +6,7 @@ import { Nav, Navbar } from 'react-bootstrap'
 import Blog from './Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './advertalphaicon.png';
+import ReactGa from 'react-ga';
 // import logo from './logo1.png'
 
 class App extends React.Component {
@@ -15,7 +16,13 @@ class App extends React.Component {
       activeKey: "1"
     }
   }
+  
+  useEffect=(() => {
+    ReactGa.initialize('UA-170502343-1')
+    ReactGa.pageview('/Homepage')
 
+},  [])
+  
   handleClick = (selectedKey) => {
     this.setState({ activeKey: selectedKey })
   }

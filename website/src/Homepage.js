@@ -1,5 +1,5 @@
-import React from 'react'
-import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap'
+import React from 'react';
+import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -90,11 +90,10 @@ class Homepage extends React.Component {
         this.setState({ experience: eventKey })
     }
 
-
-
     render() {
         return (
-            <div style={{backgroundColor:"#cccbc6"}}>
+            // <div style={{backgroundImage:"linear-gradient(rgb(233, 202, 191), white)"}}>
+            <div>
                 <div class="container-homePage">
                     <div class="fader">
                     <h2 style={{paddingTop: "5vh"}} >Looking for a truck driver job?</h2>
@@ -105,7 +104,7 @@ class Homepage extends React.Component {
 
                 <div class="container">
   <div class="row">
-    <div class="col-lg">
+    <div class="col-lg align-self-center">
     <div className="container-form">
                         <div className="applyNow">
                             <h4 >Register Now</h4>
@@ -291,15 +290,18 @@ class Homepage extends React.Component {
                     </Form >
                 </div>
     </div>
-    <div class="col">
-        <p>AdvertAlpha is a niche job-site that is trying to serve job seekers and recruiters the best by choosing a different approach.</p>
+    <div class="col align-self-center highlight" >
+        <img src={require('./wearehere.JPG')}></img>
+        <p>Let us help you match with your best suitable trucking job and transportation company. 
+            Talk to us and let us know what exactly are you looking for. 
+            We are here to listen to you and we will make sure your trucking job search ends here.</p>
     </div>
   </div>
 </div>
 
 
                     <div className="opportunityText">
-                        <p>Your opportunity strikes here...!</p>
+                        <p class="text-white bg-dark">Your opportunity strikes here...!</p>
                     </div>
             </div >
         );
