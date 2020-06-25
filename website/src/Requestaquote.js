@@ -10,9 +10,9 @@ class RequestAQuote extends React.Component {
     render() {
         return (
             <div>
-                <div className="requestQuote container">
+                <div className="requestQuote">
                     <div>
-                        <h4>Please fill the form below. We will get in touch in the next 24 hours.</h4>
+                        <p>Please fill the form below. We will get in touch in the next 24 hours.</p>
                     </div>
                     <div>
                         <InputGroup className="mb-3">
@@ -47,10 +47,10 @@ class RequestAQuote extends React.Component {
                             <FormControl rows="5" as="textarea" aria-label="With textarea" />
                         </InputGroup>
                     </div>
-                </div>
-                <div className="container">
+                    <div>
                         <Button variant="secondary">Send</Button>
                     </div>
+                </div>
             </div>
         );
     }
