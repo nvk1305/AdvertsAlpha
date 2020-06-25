@@ -40,29 +40,30 @@
 }
 
 .container-form {
-  padding-top: 2vh;
-  /* width: 40%;
-  font-weight: bolder;
+  margin-top: 4vh;
+  /* font-weight: bolder;
   text-align: center;
   margin-left: 3vh;
   padding-left: 1vh; */
-  background-color: rgba(115, 117, 117, 0.384);
+  background-color: rgba(0, 0, 0, 0.884);
   color: rgb(255, 255, 255);
 }
 
-.form {
+/* .form {
   margin-top: 2vh;
-}
+} */
 .container-homePage {
-  background-image: url("truck.jpg");
+  background-image: url("truck11.png");
   background-position: center;
+  text-align: center;
+  color:white;
 }
 
 .applyNow {
-  /* position: 'absolute'; */
   text-align: center;
-  height: 5vh;
-  background-color: rgba(37, 148, 221, 0.596);
+  margin-bottom: 2vh;
+  height: 4.5vh;
+  background-color: rgb(41, 37, 241);
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color: white;
 }
@@ -73,7 +74,7 @@
 
 
 .navbar {
-  background-color: #000000d0;
+  background-color: #000000ef;
   height: 7vh;
 }
 
@@ -89,13 +90,13 @@
 .opportunityText {
   color: aliceblue;
   font-weight: bolder;
-  font-size: 7vh;
-  margin-top: 20vh;
+  font-size: 5vh;
   position: 'absolute'; 
   bottom: 0;
   text-align:center;
   /* font-family: 'Courier New', Courier, monospace; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:black;
 }
 
 .form-check [type=checkbox] {
@@ -107,4 +108,46 @@
 .requestQuote {
   justify-content: center;
   margin-top: 2vh ;
+}
+
+
+.fader {
+  text-align: center;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
 }

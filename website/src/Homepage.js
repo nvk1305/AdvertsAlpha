@@ -94,14 +94,25 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            <div className="container-homePage">
-                <div className="container-form container">
-                    <div className="applyNow container">
-                        <h4 >Register Now</h4>
+            <div style={{backgroundColor:"#cccbc6"}}>
+                <div class="container-homePage">
+                    <div class="fader">
+                    <h2 style={{paddingTop: "5vh"}} >Looking for a truck driver job?</h2>
+                    <h4 style={{color:"#fffff", paddingTop: "7vh"}} ><mark>Help us help you!</mark></h4>
+                    <h4 style={{color:"#fffff", paddingTop: "7vh", paddingBottom: "2vh"}}>Forecast yourself with <b>AdvertAlpha</b> and get your desired opportunity in a glimpse</h4>
                     </div>
-                    <Form className="form" noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+                </div>
+
+                <div class="container">
+  <div class="row">
+    <div class="col-lg">
+    <div className="container-form">
+                        <div className="applyNow">
+                            <h4 >Register Now</h4>
+                        </div>
+                    <Form class="form-group form-group-lg container" noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
                         <Form.Row>
-                            <Form.Group as={Col} md="5" controlId="validationCustom01">
+                            <Form.Group as={Col} controlId="validationCustom01">
                                 <Form.Control
                                     id="firstName"
                                     onChange={this.handleChange}
@@ -111,7 +122,7 @@ class Homepage extends React.Component {
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="5" controlId="validationCustom02">
+                            <Form.Group as={Col} controlId="validationCustom02">
                                 <Form.Control
                                     required
                                     id="lastName"
@@ -123,7 +134,7 @@ class Homepage extends React.Component {
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
-                            <Form.Group as={Col} md="5" controlId="validationCustom01">
+                            <Form.Group as={Col}  controlId="validationCustom01">
                                 <Form.Control
                                     required
                                     id="phoneNumber"
@@ -133,7 +144,7 @@ class Homepage extends React.Component {
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="5" controlId="validationCustom02">
+                            <Form.Group as={Col}  controlId="validationCustom02">
                                 <Form.Control
                                     required
                                     id="email"
@@ -145,7 +156,7 @@ class Homepage extends React.Component {
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
-                            <Form.Group as={Col} md="5" controlId="validationCustom03">
+                            <Form.Group as={Col}  controlId="validationCustom03">
                                 <Form.Control
                                     id="city"
                                     onChange={this.handleChange}
@@ -156,7 +167,7 @@ class Homepage extends React.Component {
                                     Please provide a valid city.
                             </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="5" controlId="validationCustom04">
+                            <Form.Group as={Col}  controlId="validationCustom04">
                                 <Form.Control
                                     type="text"
                                     id="state"
@@ -169,7 +180,7 @@ class Homepage extends React.Component {
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
-                            <Form.Group as={Col} md="5" controlId="validationCustom05">
+                            <Form.Group as={Col} md={6} controlId="validationCustom05">
                                 <Form.Control
                                     id="zipcode"
                                     type="text"
@@ -180,7 +191,7 @@ class Homepage extends React.Component {
                                     Please provide a valid zip.
                             </Form.Control.Feedback>
                             </Form.Group>
-                            <div style={{ marginLeft: "0.5vw" }}>
+                            <div style={{paddingBottom:"2vh", paddingLeft:"1vw"}}>
                                 <DropdownButton
                                     required
                                     drop="right"
@@ -196,7 +207,7 @@ class Homepage extends React.Component {
                             </div>
                         </Form.Row>
                         <Form.Row>
-                            <Form.Group as={Col} md="5" controlId="validationCustom01">
+                            <Form.Group as={Col} md={6} controlId="validationCustom01">
                                 <Form.Control
                                     required
                                     id="endorsements"
@@ -208,7 +219,7 @@ class Homepage extends React.Component {
                             </Form.Group>
                             <fieldset style={{ fontSize: "small" }}>
                                 <Form.Group as={Col}>
-                                    <Form.Label as="legend" required md={4}>
+                                    <Form.Label as="legend" required >
                                         Do you have a CDL-A?
                                         </Form.Label>
                                     <Form.Check
@@ -235,7 +246,7 @@ class Homepage extends React.Component {
                             </fieldset>
                         </Form.Row>
                         <Form.Row style={{ textAlign: "left" }}>
-                            <Form.Group as={Col} md="8" >
+                            <Form.Group as={Col} md={7}  >
                                 <Form.Check
                                     onChange={this.handleChange}
                                     checked={this.state.isFlatBedChecked}
@@ -245,7 +256,7 @@ class Homepage extends React.Component {
                                     feedback="You must agree before submitting."
                                 />
                             </Form.Group>
-                            <Form.Group as={Col} md="8">
+                            <Form.Group as={Col} md={7}>
                                 <Form.Check
                                     onChange={this.handleChange}
                                     id="ownerOperator"
@@ -254,7 +265,7 @@ class Homepage extends React.Component {
                                     feedback="You must agree before submitting."
                                 />
                             </Form.Group>
-                            <Form.Group as={Col} md="8">
+                            <Form.Group as={Col} md={7}>
                                 <Form.Check
                                     onChange={this.handleChange}
                                     id="leasePurchaseInterest"
@@ -279,10 +290,17 @@ class Homepage extends React.Component {
                         </div>
                     </Form >
                 </div>
+    </div>
+    <div class="col">
+        <p>AdvertAlpha is a niche job-site that is trying to serve job seekers and recruiters the best by choosing a different approach.</p>
+    </div>
+  </div>
+</div>
 
-                <div className="opportunityText">
-                    <p>your opportunity strikes here...!</p>
-                </div>
+
+                    <div className="opportunityText">
+                        <p>Your opportunity strikes here...!</p>
+                    </div>
             </div >
         );
     }
