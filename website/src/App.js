@@ -5,8 +5,9 @@ import { Nav, Navbar, Modal, Button } from 'react-bootstrap'
 import Blog from './Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './advertalphaicon.png';
-import ReactGa from 'react-ga';
+import ReactGA from 'react-ga';
 // import logo from './logo1.png'
+import ContactUsModal from "./ContactUsModal"
 
 class App extends React.Component {
   constructor(props) {
@@ -19,11 +20,18 @@ class App extends React.Component {
     }
   }
 
-  useEffect = (() => {
-    ReactGa.initialize('UA-170502343-1')
-    ReactGa.pageview('/Homepage')
+  componentDidMount() {
+    ReactGA.initialize('UA-170502343-1');
+  }
 
+  useEffect = (() => {
+    // ReactGa.initialize('UA-170502343-1')
+    ReactGA.pageview('/')
   }, [])
+
+  handleClick = (selectedKey) => {
+    selectedKey === "2" ? this.setState({ showModal: true }) : this.setState({ activeKey: selectedKey })
+  }
 
   handleClick = (selectedKey) => {
     selectedKey === "2" ? this.setState({ showModal: true }) : this.setState({ activeKey: selectedKey })

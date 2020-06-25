@@ -8,7 +8,7 @@ class Blog extends React.Component {
         return (
             <div className="container-blog" >
                 <div className="container" >
-                    <div>
+                    <div style={{ fontSize: "x-large", textIndent: "10vw", color: "white" }}>
                         <p>At Advertalpha, we help recruiters get the most relevant jobseekers for their listings and most relevant jobs for the job seekers. To achieve that, to add a
                     pinch of quality to service, we are validating the information before serving it.</p>
 
