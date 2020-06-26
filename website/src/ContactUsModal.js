@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Form, Col, Row, InputGroup, FormControl } from 'react-bootstrap'
+import { Modal, Form, Col } from 'react-bootstrap'
 
 class Contactusmodal extends React.Component {
     constructor(props) {

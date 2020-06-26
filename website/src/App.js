@@ -60,7 +60,7 @@ class App extends React.Component {
       <div className="App">
         <div className="container-navbar">
           <Navbar className="navbar" activeKey={this.state.activeKey} variant="dark">
-            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="50px" height="50px" src={logo} ></img> AdvertAlpha </Navbar.Brand>
+            <Navbar.Brand onClick={this.handleNavbarOnClick}><img width="45px" height="45px" src={logo} alt="AdvertAlpha" ></img> AdvertAlpha </Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link eventKey={3} active={this.state.activeKey} onSelect={this.handleClick}>Blog<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>|</Nav.Link>
               <Nav.Link eventKey={2} active={this.state.activeKey} onSelect={this.handleClick}>Contact Us</Nav.Link>

@@ -1,5 +1,20 @@
 import React from 'react';
-import { Form, Button, Col, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Form, Col, Dropdown, DropdownButton } from 'react-bootstrap';
+import Select from 'react-select';
+
+const States = [
+    { label: "Washington", value: 1 },{ label: "Delaware", value: 1 },{ label: "District of Columbia", value: 1 },{ label: "Wisconsin", value: 1 },
+    { label: "West Virginia", value: 1 },{ label: "Hawaii", value: 1 },{ label: "Florida", value: 1 },{ label: "Wyoming", value: 1 },{ label: "New Hampshire", value: 1 },
+  ];
+  
+
+const Cities=[
+    { label: "Alligators", value: 1 },
+  { label: "Crocodiles", value: 2 },
+  { label: "Sharks", value: 3 },
+
+];
+
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -54,7 +69,7 @@ class Homepage extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -67,8 +82,10 @@ class Homepage extends React.Component {
     };
 
     handleChange = (event) => {
-        console.log(event.target.id)
+        // console.log(event.target.id)
+        console.log(event.value)
         console.log(event.target.value)
+        console.log(event.target.label)
         if (event.target.id === "flatbedExperience") {
             this.setState({
                 isFlatBedChecked: !this.state.isFlatBedChecked
@@ -90,15 +107,35 @@ class Homepage extends React.Component {
         this.setState({ experience: eventKey })
     }
 
+    handleState = (opt) =>{
+        // console.log(opt.label, opt.value, opt.inputId)
+        this.setState({
+            state:opt.label
+
+        })
+
+    }
+
+    handleCity = (opt) =>{
+        // console.log(opt.label, opt.value, opt.inputId)
+        this.setState({
+            city:opt.label
+
+        })
+
+    }
+
     render() {
+        console.log(this.state.state)
+        console.log(this.state.city)
         return (
             // <div style={{ backgroundImage: "linear-gradient(rgb(233, 202, 191), white)" }}>
             <div>
                 <div class="container-homePage">
                     <div class="fader">
                         <h2 style={{ paddingTop: "5vh" }} >Looking for a truck driver job?</h2>
-                        <h4 style={{ color: "#fffff", paddingTop: "7vh" }} ><mark>Help us help you!</mark></h4>
-                        <h4 style={{ color: "#fffff", paddingTop: "7vh", paddingBottom: "2vh" }}>Forecast yourself with <b style={{ fontSize: "xx-large", fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>AdvertAlpha</b> and get your desired opportunity in a glimpse</h4>
+                        <h4 style={{ color: "#fffff", paddingTop: "7vh" }} ><mark>Glad you chose us</mark></h4>
+                        <h4 style={{ color: "#fffff", paddingTop: "7vh", paddingBottom: "2vh" }}>Forecast yourself with <b style={{ fontSize: "xx-large", fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>AdvertAlpha</b> and get your desired and deserved opportunity in a glimpse</h4>
                     </div>
                 </div>
 
@@ -155,19 +192,8 @@ class Homepage extends React.Component {
                                         </Form.Group>
                                     </Form.Row>
                                     <Form.Row>
-                                        <Form.Group as={Col} controlId="validationCustom03">
-                                            <Form.Control
-                                                id="city"
-                                                onChange={this.handleChange}
-                                                type="text"
-                                                placeholder="City"
-                                                required />
-                                            <Form.Control.Feedback type="invalid">
-                                                Please provide a valid city.
-                            </Form.Control.Feedback>
-                                        </Form.Group>
-                                        <Form.Group as={Col} controlId="validationCustom04">
-                                            <Form.Control
+                                    <Form.Group as={Col} controlId="validationCustom04">
+                                            {/* <Form.Control
                                                 type="text"
                                                 id="state"
                                                 onChange={this.handleChange}
@@ -175,8 +201,22 @@ class Homepage extends React.Component {
                                                 required />
                                             <Form.Control.Feedback type="invalid">
                                                 Please provide a valid state.
-                            </Form.Control.Feedback>
+                            </Form.Control.Feedback> */}
+                                            <div><Select options={States} inputId="state" onChange={opt => {this.handleState(opt)}} /></div>
                                         </Form.Group>
+                                        <Form.Group as={Col} controlId="validationCustom03">
+                                            {/* <Form.Control
+                                                id="city"
+                                                onChange={this.handleChange}
+                                                type="text"
+                                                placeholder="City"
+                                                required />
+                                            <Form.Control.Feedback type="invalid">
+                                                Please provide a valid city.
+                            </Form.Control.Feedback> */}
+                                            <div><Select options={Cities} inputId="city" onChange={opt => {this.handleCity(opt)}}/></div>
+                                        </Form.Group>
+
                                     </Form.Row>
                                     <Form.Row>
                                         <Form.Group as={Col} md={6} controlId="validationCustom05">
@@ -198,7 +238,7 @@ class Homepage extends React.Component {
                                                 onSelect={this.handleDropdown}
                                                 id="experience"
                                                 title={this.state.experience}>
-                                                <Dropdown.Item eventKey="0 - 1 Years">0 - 1 years</Dropdown.Item>
+                                                <Dropdown.Item eventKey="0 - 1 Year">0 - 1 years</Dropdown.Item>
                                                 <Dropdown.Item eventKey="1 - 3 Years">1 - 3 years</Dropdown.Item>
                                                 <Dropdown.Item eventKey="3 - 5 Years">3 - 5 years</Dropdown.Item>
                                                 <Dropdown.Item eventKey="5+ Years">5+ years</Dropdown.Item>
@@ -212,7 +252,7 @@ class Homepage extends React.Component {
                                                 id="endorsements"
                                                 onChange={this.handleChange}
                                                 type="text"
-                                                placeholder="Do you have any endorsements?"
+                                                placeholder="Do you carry or hold any endorsements?"
                                             />
                                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                         </Form.Group>
@@ -245,22 +285,22 @@ class Homepage extends React.Component {
                                         </fieldset>
                                     </Form.Row>
                                     <Form.Row style={{ textAlign: "left" }}>
+                                    <Form.Group as={Col} md={7}>
+                                            <Form.Check
+                                                onChange={this.handleChange}
+                                                id="ownerOperator"
+                                                checked={this.state.isOwnerOperatorChecked}
+                                                label="Iam an owner operator"
+                                                feedback="You must agree before submitting."
+                                            />
+                                        </Form.Group>
                                         <Form.Group as={Col} md={7}  >
                                             <Form.Check
                                                 onChange={this.handleChange}
                                                 checked={this.state.isFlatBedChecked}
                                                 value="Yes"
                                                 id="flatbedExperience"
-                                                label="I have experience in flatbed"
-                                                feedback="You must agree before submitting."
-                                            />
-                                        </Form.Group>
-                                        <Form.Group as={Col} md={7}>
-                                            <Form.Check
-                                                onChange={this.handleChange}
-                                                id="ownerOperator"
-                                                checked={this.state.isOwnerOperatorChecked}
-                                                label="I am an owner operator"
+                                                label="Experienced in flatbed"
                                                 feedback="You must agree before submitting."
                                             />
                                         </Form.Group>
@@ -269,7 +309,7 @@ class Homepage extends React.Component {
                                                 onChange={this.handleChange}
                                                 id="leasePurchaseInterest"
                                                 checked={this.state.isLeasePurchaseChecked}
-                                                label="I am interested in lease purchase"
+                                                label="Interested in lease purchase"
                                                 feedback="You must agree before submitting."
                                             />
                                         </Form.Group>
@@ -281,25 +321,25 @@ class Homepage extends React.Component {
                                     </div>
                                     <div style={{ fontSize: "small", fontWeight: "lighter" }}>
                                         <p>
-                                            *By submitting this form you are opting in to receive correspondence from employers.
-                                            This includes receiving auto-dialed telephone calls, prerecorded messages and emails
-                                about trucking job opportunities at the contact numbers you have provided above.</p>
+                                            *By submitting this form you are opting to receive correspondence from employers.
+                                            This includes receiving auto-dialed telephone calls, pre-recorded messages and emails
+                                            regarding trucking job opportunities at the contact numbers you have provided above.</p>
                                     </div>
                                 </Form >
                             </div>
                         </div>
                         <div class="col align-self-center highlight" >
-                            <img src={require('./wearehere.jpeg')}></img>
+                            <img src={require('./wearehere.jpeg')} alt="LetUsKnow"></img>
                             <p style={{ marginLeft: "3vw" }}>Let us help you match with your best suitable trucking job and transportation company.
-                            Talk to us and let us know what exactly are you looking for.
-            We are here to listen to you and we will make sure your trucking job search ends here.</p>
+                            Feel free to let us know what exactly are you looking for.
+                            We are here to listen to you and we'll make sure your trucking job hunt ends here.</p>
                         </div>
                     </div>
                 </div>
 
 
                 <div className="opportunityText">
-                    <p class="text-white bg-dark">Your opportunity strikes here...!</p>
+                    <p class="text-white bg-dark">Your opportunity strikes here!</p>
                 </div>
             </div >
         );
