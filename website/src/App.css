@@ -67,6 +67,7 @@
     font-size: 5vh;
     position: 'absolute'; 
     text-align:center;
+    margin-top: 1vh;
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -159,5 +160,6 @@ font-size: small;
 
 .highlight {
   text-align: center;
+  margin-left: 10vw;
   font-size: 3vh;
 }

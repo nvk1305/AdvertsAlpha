@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Form, Col } from 'react-bootstrap'
+import { Modal, Form, Col, Row, InputGroup, FormControl } from 'react-bootstrap'
 
 class Contactusmodal extends React.Component {
     constructor(props) {
@@ -8,6 +8,7 @@ class Contactusmodal extends React.Component {
             name: "",
             email: "",
             subject: "",
+            phoneNumber: "",
             message: "",
             showSuccessModal: false
         }
@@ -20,6 +21,7 @@ class Contactusmodal extends React.Component {
             "name": this.state.name,
             "email": this.state.email,
             "subject": this.state.subject,
+            "phoneNumber": this.state.phoneNumber,
             "message": this.state.message
         })
         var requestOptions = {
@@ -79,6 +81,17 @@ class Contactusmodal extends React.Component {
                                         required
                                         type="email"
                                         placeholder="Email"
+                                    />
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} md="12" controlId="validationCustom01">
+                                    <Form.Control
+                                        id="phoneNumber"
+                                        onChange={this.handleChange}
+                                        required
+                                        type="text"
+                                        placeholder="Phone Number (Optional)"
                                     />
                                 </Form.Group>
                             </Form.Row>
