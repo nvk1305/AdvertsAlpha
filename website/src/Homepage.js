@@ -29224,12 +29224,12 @@ class Homepage extends React.Component {
                                                     </Form.Group>
                                                 </Form.Row>
                                                 <Form.Row>
-                                                    <Form.Group as={Col} md={6}>
+                                                    <Form.Group as={Col} md={7}>
                                                         <Form.Control
                                                             name="endorsement"
                                                             type="text"
                                                             id="endorsement"
-                                                            placeholder="Do you carry or hold any endorsements?"
+                                                            placeholder="Do you carry any endorsements?"
                                                             onChange={handleChange}
                                                             value={values.endorsement}
                                                             onBlur={handleBlur}
@@ -29243,7 +29243,7 @@ class Homepage extends React.Component {
                                                     <fieldset style={{ fontSize: "small" }}>
                                                         <Form.Group as={Col}>
                                                             <Form.Label as="legend" required >
-                                                                Do you have a CDL_A?
+                                                                Do you have a CDL-A?
                                                         </Form.Label>
                                                             <Form.Check
                                                                 inline
@@ -29305,7 +29305,7 @@ class Homepage extends React.Component {
                                                             onChange={handleChange}
                                                             name="leasePurchase"
                                                             value={values.leasePurchase}
-                                                            label="Interested in lease purchase"
+                                                            label="Are you 21 years old or above?"
                                                             feedback="You must agree before submitting."
                                                         />
                                                     </Form.Group>
